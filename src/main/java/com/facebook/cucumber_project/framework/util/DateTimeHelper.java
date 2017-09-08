@@ -1,5 +1,7 @@
 /**
+ * @author choudhuryIqbal
  * 
+ * <strong>this code will return the current time and date of system.</strong>
  */
 package com.facebook.cucumber_project.framework.util;
 
@@ -14,15 +16,11 @@ public class DateTimeHelper {
 		DateFormat dateFormat = new SimpleDateFormat("_MM-dd-yyyy-_____HH-mm-ss");
 		Calendar cal = Calendar.getInstance();
 		String time = "" + dateFormat.format(cal.getTime());
-		//debug
-		//System.out.println(time);
 		return time;
 	}
 
 	public static String getCurrentDate() {
 		return getCurrentDateTime().substring(0, 11);
 	}
-	public static void main(String[] args) {
-		getCurrentDateTime();
-	}
+	
 }

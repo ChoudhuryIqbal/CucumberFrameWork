@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 /**
  * 
- * @author bsingh5
+ * @author choudhuryIqbal
  *
  */
 public class ResourceHelper {
@@ -20,17 +20,13 @@ public class ResourceHelper {
 	}
 	
 	public static String getBaseResourcePath() {
-		System.out.println(ResourceHelper.class.getClass().getResource("resources"));
-		String path = ResourceHelper.class.getClass().getResource("/").getPath();
+	//	System.out.println(ResourceHelper.class.getClass().getResource("resources"));
+		String path =System.getProperty("user.dir");// ResourceHelper.class.getClass().getResource("/").getPath();
 		return path;
 	}
 	
 	public static InputStream getResourcePathInputStream(String resource) throws FileNotFoundException {
 		return new FileInputStream(ResourceHelper.getResourcePath(resource));
 	}
-	
-	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println(ResourceHelper.getResourcePath("configfile/"+ "config.properties"));	
-	}
-	
+
 }
