@@ -6,14 +6,14 @@ import org.apache.log4j.Level;
 
 import com.facebook.cucumber_project.framework.util.ResourceHelper;
 
-public class PropertyFileReader {
+public class PropertyFileReader implements ConfigReader {
 
 	private Properties prop = null;
 
 	public PropertyFileReader() {
 		prop = new Properties();
 		try {
-			prop.load(ResourceHelper.getResourcePathInputStream("configfile/" + "config.properties"));
+			prop.load(ResourceHelper.getResourcePathInputStream("/src/main/resources/configfile/config.properties"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,6 +59,15 @@ public class PropertyFileReader {
 			return Level.FATAL;
 		}
 		return Level.ALL;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.facebook.cucumber_project.framework.configreader.ConfigReader#getBrowser()
+	 */
+	@Override
+	public BrowserType getBrowser() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
