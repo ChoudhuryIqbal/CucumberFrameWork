@@ -4,9 +4,10 @@ import java.util.Properties;
 
 import org.apache.log4j.Level;
 
+import com.facebook.cucumber_project.framework.Configuration.browser.BrowserType;
 import com.facebook.cucumber_project.framework.util.ResourceHelper;
 
-public class PropertyFileReader implements ConfigReader {
+public class PropertyFileReader implements ConfigReader{
 
 	private Properties prop = null;
 
@@ -43,6 +44,18 @@ public class PropertyFileReader implements ConfigReader {
 		return Integer.parseInt(prop.getProperty("ExplicitWait"));
 	}
 
+	public String getDbType() {
+		return prop.getProperty("DataBase.Type");
+	}
+
+	public String getDbConnStr() {
+		return prop.getProperty("DtaBase.ConnectionStr");
+	}
+
+	public BrowserType getBrowser() {
+		return BrowserType.valueOf(prop.getProperty("Browser"));
+	}
+
 	public Level getLoggerLevel() {
 
 		switch (prop.getProperty("Logger.Level")) {
@@ -59,15 +72,6 @@ public class PropertyFileReader implements ConfigReader {
 			return Level.FATAL;
 		}
 		return Level.ALL;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.facebook.cucumber_project.framework.configreader.ConfigReader#getBrowser()
-	 */
-	@Override
-	public BrowserType getBrowser() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
