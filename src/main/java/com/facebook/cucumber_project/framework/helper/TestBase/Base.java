@@ -173,7 +173,7 @@ public class Base {
 
 	@After()
 	public void after(Scenario scenario) throws Exception {
-		driver.quit();
+		//driver.quit();
 		log.info("");
 	}
 }
