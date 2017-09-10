@@ -7,12 +7,14 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
 import com.facebook.cucumber_project.framework.helper.Logger.LoggerHelper;
+import com.facebook.cucumber_project.framework.helper.TestBase.Base;
 
 /**
  * @author choudhuryIqbal
  *
  */
-public class GenericHelper {
+public class GenericHelper extends Base{
+	
 	private static final Logger log = LoggerHelper.getLogger(GenericHelper.class);
 	
 	public String readValueFromElement(WebElement element) {
@@ -92,6 +94,5 @@ public class GenericHelper {
 		}
 		return elementText;
 	}
-
 
 }
